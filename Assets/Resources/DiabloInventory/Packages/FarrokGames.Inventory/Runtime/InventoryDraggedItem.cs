@@ -11,6 +11,7 @@ namespace FarrokhGames.Inventory
     {
         public enum DropMode
         {
+            Collected,
             Added,
             Swapped,
             Returned,

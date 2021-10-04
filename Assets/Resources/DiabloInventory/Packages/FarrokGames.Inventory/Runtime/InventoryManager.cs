@@ -123,7 +123,8 @@ namespace FarrokhGames.Inventory
 
         /// <inheritdoc />
         public Action<IInventoryItem> onItemRemoved { get; set; }
-        
+
+        public Action<IInventoryItem> onItemRemovedAndRearranged { get; set; }
         /// <inheritdoc />
         public Action onResized { get; set; }
 
@@ -291,6 +292,14 @@ namespace FarrokhGames.Inventory
             foreach (var item in allItems)
             {
                 TryRemove(item);
+            }
+        }
+
+        public void CountItem()
+        {
+            foreach (var item in allItems)
+            {
+                Debug.Log(item);
             }
         }
 

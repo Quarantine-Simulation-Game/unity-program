@@ -12,6 +12,7 @@ namespace FarrokhGames.Inventory.Examples
         [SerializeField] private InventoryShape _shape = null;
         [SerializeField] private ItemType _type;
         [SerializeField] private bool _canDrop = true;
+        [SerializeField] private bool _canMove = true;
         [SerializeField, HideInInspector] private Vector2Int _position = Vector2Int.zero;
 
         /// <summary>
@@ -48,6 +49,7 @@ namespace FarrokhGames.Inventory.Examples
 
         /// <inheritdoc />
         public bool canDrop => _canDrop;
+        public bool canMove => _canMove;
 
         /// <summary>
         /// Creates a copy if this scriptable object

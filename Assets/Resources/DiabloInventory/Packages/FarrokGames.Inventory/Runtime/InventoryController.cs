@@ -44,6 +44,7 @@ namespace FarrokhGames.Inventory
 
             /// <inheritdoc />
             public Action<IInventoryItem> onItemDropped { get; set; }
+            public Action<IInventoryItem> onItemRemovedAndRearranged { get; set; }
 
             private Canvas _canvas;
             internal InventoryRenderer inventoryRenderer;
@@ -127,8 +128,9 @@ namespace FarrokhGames.Inventory
                 if (_draggedItem == null) return;
                 
                 var mode = _draggedItem.Drop(eventData.position);
-
-                switch (mode)
+                
+            Debug.Log(mode);
+            switch (mode)
                 {
                     case InventoryDraggedItem.DropMode.Added:
                         onItemAdded?.Invoke(_itemToDrag);
@@ -141,11 +143,13 @@ namespace FarrokhGames.Inventory
                         break;
                     case InventoryDraggedItem.DropMode.Dropped:
                         onItemDropped?.Invoke(_itemToDrag);
+                        if(inventory.TryDrop(_itemToDrag))           
                         ClearHoveredItem();
                         break;
                 }
-
-                _draggedItem = null;
+            
+            inventory.onItemRemovedAndRearranged?.Invoke(_itemToDrag);
+            _draggedItem = null;
             }
 
             /*

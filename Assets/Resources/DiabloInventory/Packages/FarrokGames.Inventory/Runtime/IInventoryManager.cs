@@ -23,6 +23,13 @@ namespace FarrokhGames.Inventory
         /// <summary>
         /// Invoked when an item is removed from the inventory and should be placed on the ground.
         /// </summary>
+        /// 
+        Action<IInventoryItem> onItemRemovedAndRearranged { get; set; }
+
+        /// <summary>
+        /// Invoked when an item is removed from the inventory and should be placed on the ground.
+        /// </summary>
+        /// 
         Action<IInventoryItem> onItemDropped { get; set; }
         
         /// <summary>

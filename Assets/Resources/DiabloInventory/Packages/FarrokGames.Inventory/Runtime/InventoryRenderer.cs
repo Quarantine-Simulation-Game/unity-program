@@ -240,6 +240,7 @@ namespace FarrokhGames.Inventory
         /*
          * Create an image with given sprite and settings
          */
+
         private Image CreateImage(Sprite sprite, bool raycastTarget)
         {
             var img = _imagePool.Take();

@@ -4,9 +4,10 @@ namespace FarrokhGames.Inventory
 {
     public interface IInventoryItem
     {
-        /// <summary>
-        /// The sprite of this item
-        /// </summary>
+        string name {get; set; }
+    /// <summary>
+    /// The sprite of this item
+    /// </summary>
         Sprite sprite { get; }
 
         /// <summary>
