@@ -16,7 +16,8 @@ MonoBehaviour:
   _shape:
     _width: 1
     _height: 4
-    _shape: 01010101
+    _shape: 01010001
   _type: 1
   _canDrop: 1
+  _canMove: 1
   _position: {x: 0, y: 0}

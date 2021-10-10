@@ -17,13 +17,6 @@ public class Player : MonoBehaviour
     public int currentPower;
     public PowerBar powerBar;
 
-    public int maxEnergy = 50;
-    public int currentEnergy;
-    public EnergyBar energyBar;
-
-    private static bool newDay;
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -36,24 +29,12 @@ public class Player : MonoBehaviour
         currentPower = maxPower;
         powerBar.SetMaxPower(maxPower);
 
-        currentEnergy = maxEnergy;
-        energyBar.SetMaxEnergy(maxEnergy);
 
 
 
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        newDay = DayChange.newDay;
-        if (newDay)
-        {
-            loseHunger(1);
-            DayChange.newDay = false;
-        }
-
-    }
 
     void loseHunger(int hunger)
     {
@@ -76,12 +57,7 @@ public class Player : MonoBehaviour
         powerBar.SetPower(currentPower);
     }
 
-    void loseEnergy(int energy)
-    {
-        currentEnergy -= energy;
 
-        energyBar.SetEnergy(currentEnergy);
-    }
 
     void gainHunger(int hunger)
     {
@@ -104,10 +80,4 @@ public class Player : MonoBehaviour
         powerBar.SetPower(currentPower);
     }
 
-    void gainEnergy(int energy)
-    {
-        currentEnergy += energy;
-
-        energyBar.SetEnergy(currentEnergy);
-    }
 }
