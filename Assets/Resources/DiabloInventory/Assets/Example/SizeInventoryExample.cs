@@ -11,20 +11,19 @@ namespace FarrokhGames.Inventory.Examples
     {
         [SerializeField] private InventoryRenderMode _renderMode = InventoryRenderMode.Grid;
         [SerializeField] private int _maximumAlowedItemCount = -1;
-        [SerializeField] private ItemType _allowedItem = ItemType.Any;
-        [SerializeField] int _width = 8;
-        [SerializeField] int _height = 4;
+        public ItemType _allowedItem = ItemType.Any;
+        public int _width = 8;
+        public int _height = 4;
         public ItemDefinition[] _definitions = null;
         [SerializeField] private bool _fillRandomly = true; // Should the inventory get filled with random items?
         [SerializeField] private bool _fillEmpty = false; // Should the inventory get completely filled?
         [SerializeField] private bool _fillCenter = false; // Should the inventory filled in center?
         [SerializeField] private bool _selfDestroy = false; // Should the inventory self destory if item is removed?
 
-        InventoryManager inventory;
+        public InventoryManager inventory;
         void Start()
         {
             InventoryProvider provider = new InventoryProvider(_renderMode, _maximumAlowedItemCount, _allowedItem);
-
             // Create inventory
             inventory = new InventoryManager(provider, _width, _height);
 
